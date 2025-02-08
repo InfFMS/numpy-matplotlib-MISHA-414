@@ -12,8 +12,6 @@
 import random
 import matplotlib.pyplot as plt
 
-
-
 temp=[random.randint(-10, 36) for i in range(365)]
 average_temp=sum(temp)/365
 higher_25=0
