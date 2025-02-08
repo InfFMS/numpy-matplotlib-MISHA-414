@@ -10,44 +10,43 @@ from numpy.matrixlib.defmatrix import matrix
 desk=[]
 for i in range(8):
     if i%2==0:
-        desk.append([3 if i%2==0 else 0 for i in range(8)])
+        desk.append([1 if i%2==0 else 0 for i in range(8)])
     else:
-        desk.append([0 if i%2==0 else 3 for i in range(8)])
+        desk.append([0 if i%2==0 else 1 for i in range(8)])
 # Здесь находиться ферзь
-x=int(input())
-y=8-int(input())
-color=1 # Чёрный
-desk[x][y]=1
-if x+y%2==0:   # Определяем цвет
-    color=2 # Белый
-    desk[x][y]=2
+x=int(input())-1
+y=int(input())-1
 
+fig, ax = plt.subplots()
+circle = plt.Circle((x, y), 0.2, color="red")
+ax.add_patch(circle)
 # Красим диагонали
 up_x, up_y=x+1, y+1
 while up_x!=8 and up_y!=8:
-    desk[up_x][up_y]=color
+    circle = plt.Circle((up_x, up_y), 0.1, color="pink")
+    ax.add_patch(circle)
     up_x+=1
     up_y+=1
 down_x, down_y=x-1, y-1
-while down_x!= -1 and down_y-y!= -1:
-    desk[down_x][down_y]=color
+while down_x!= -1 and down_y!= -1:
+    circle = plt.Circle((down_x, down_y), 0.1, color="pink")
+    ax.add_patch(circle)
     down_x-=1
     down_y-=1
 left_x, left_y=x-1, y+1
-while left_x-x!= -1 and left_y-y!=8:
-    desk[left_x][left_y]=color
+while left_x!= -1 and left_y!=8:
+    circle = plt.Circle((left_x, left_y), 0.1, color="pink")
+    ax.add_patch(circle)
     left_x-=1
     left_y+=1
 right_x, right_y=x+1, y-1
-while right_x-x!=8 and right_y-y!= -1:
-    desk[right_x][right_y]=color
+while right_x!=8 and right_y!= -1:
+    circle = plt.Circle((right_x, right_y), 0.1, color="pink")
+    ax.add_patch(circle)
     right_x+=1
     right_y-=1
 # Вертикаль и горизонталь
-if x%2==0:
-    desk[x]=[1, 3, 1, 3, 1, 3, 1, 3]
-else:
-    desk[x] = [3, 1, 3, 1, 3, 1, 3, 1]
+
 
 
 
