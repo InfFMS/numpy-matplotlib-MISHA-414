@@ -45,8 +45,18 @@ while right_x!=8 and right_y!= -1:
     ax.add_patch(circle)
     right_x+=1
     right_y-=1
-# Вертикаль и горизонталь
 
+# Вертикаль и горизонталь
+for x_i in range(8):
+    if x_i==x:
+        continue
+    circle = plt.Circle((x_i, y), 0.1, color="pink")
+    ax.add_patch(circle)
+for y_i in range(8):
+    if y_i==y:
+        continue
+    circle = plt.Circle((x, y_i), 0.1, color="pink")
+    ax.add_patch(circle)
 
 
 
@@ -54,8 +64,7 @@ while right_x!=8 and right_y!= -1:
 plt.imshow(desk, cmap='gray')
 plt.xticks([0, 1, 2, 3, 4, 5, 6, 7], ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'])
 plt.yticks([0, 1, 2, 3, 4, 5, 6, 7], [1, 2, 3, 4, 5, 6, 7, 8])
-# Добавление цветовой шкалы
-plt.colorbar()
+
 plt.title("Тепловая карта")
 plt.show()
 
